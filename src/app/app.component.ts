@@ -17,6 +17,7 @@ export class AppComponent {
 	openDetails: boolean = false;
 	detailID: number;
 	prevPath: string;
+	teeest: string;
 
 	constructor(
 		private elementRef: ElementRef,
