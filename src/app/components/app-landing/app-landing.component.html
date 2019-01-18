@@ -1,0 +1,36 @@
+<div [style.backgroundImage]="'url(/site_images/loginbg.png)'" class="main flex">
+	<div class="main-text flex">
+		<h1>A community built around Movies.</h1>
+		<div class="boxes flex">
+			<div class="box flex">
+				<div class="icon flex">
+					<i class="fas fa-search"></i>
+				</div>
+				<p>Discover Movies</p>
+			</div>
+			<div class="box flex">
+				<div class="icon flex">
+					<i class="fas fa-share-alt"></i>
+				</div>
+				<p>Share your Taste</p>
+			</div>
+			<div class="box flex">
+				<div class="icon flex">
+					<i class="fas fa-users"></i>
+				</div>
+				<p>Get Suggestions</p>
+			</div>
+		</div>
+		<p>Find new movies based on what you like, share your taste of movies, get movies suggestions from the community and friends.<br>
+		This website is built for you to find the next movie to watch, and maybe it will be your next favorite movie.</p>
+		<h5>2019 © BLACK-ISO | All rights reserved</h5>
+	</div>
+	<div class="main-cred-area">
+		<div *ngIf="mainState; else registerBlock">
+			<app-login [landing]="fromLanding"></app-login>
+		</div>
+		<ng-template #registerBlock>
+			<app-register [landing]="fromLanding"></app-register>
+		</ng-template>
+	</div>
+</div>

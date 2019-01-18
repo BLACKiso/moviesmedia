@@ -1,0 +1,9 @@
+<div class="buttons">
+	<i [ngClass]="watched ? 'gold' : ''" class="fas fa-video" id="watched" (click)="AddMovie($event)"></i>
+	<i [ngClass]="watchlist ? 'gold' : ''" class="fas fa-clock" id="watchlist" (click)="AddMovie($event)"></i>
+</div>
+<img src="{{poster}}" alt="" (click)="loadDetails()">
+<div class="detail flex">
+	<span class="title">{{data.title}}</span>
+	<span class="year">{{year}}</span>
+</div>

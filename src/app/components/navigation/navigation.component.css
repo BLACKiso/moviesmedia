@@ -1,0 +1,135 @@
+.main-navigation {
+	height: 50px;
+	background-color: black;
+	width: 100%;
+	padding: 0 2%;
+	box-sizing: border-box;
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+}
+
+.logo {
+	align-items: center;
+}
+
+.logo > img {
+	height: 35px;
+}
+
+.menu {
+	margin-left: 50px;
+	align-items: center;
+}
+
+.menu > li {
+	margin-right: 30px;
+	height: 100%;
+	align-items: center;
+}
+
+.menu > li > a {
+	color: white;
+	font-size: 13px;
+	height: 100%;
+	line-height: 50px;
+	box-sizing: border-box;
+	border-bottom: 1px solid black;
+	transition: .3s;
+}
+
+.search {
+	align-items: center;
+	margin-left: auto;
+	margin-right: 10%;
+}
+
+.search > input {
+	height: 70%;
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px; 
+	border: none;
+	box-sizing: border-box;
+	padding-left: 20px;
+	width: 180px;
+	color: white;
+	background-color: #1F1F1F;
+}
+
+.search > input::placeholder {
+	color: rgba(255,255,255,.5);
+}
+
+.search > button {
+	border-top-left-radius: 0; 
+	border-bottom-left-radius: 0;
+	height: 70%;
+	min-width: 50px; 
+	background-color: #1F1F1F;
+	color: white;
+}
+
+.notification-btn {
+	color: white;
+	align-items: center;
+	font-size: 20px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.profile {
+	align-items: center;
+}
+
+.profile > img {
+	height: calc(50px * 0.7);
+	border-radius: 100%;
+	cursor: pointer;
+}
+
+.drop-menu {
+	position: fixed;
+	flex-direction: column;
+	width: 100px;
+	padding: 10px 20px;
+	background-color: black;
+	top: 60px;
+	right: 1%;
+	color: rgba(255,255,255,.8);
+	font-size: 13px;
+	border-radius: 5px;
+	z-index: 500;
+}
+
+.drop-menu:before {
+	content: '';
+	height: 10px;
+	width: 10px;
+	background-color: black;
+	z-index: -1;
+	transform: rotate(45deg);
+	position: absolute;
+	top: -5px;
+	right: 18%;
+}
+
+.drop-menu > li {
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+.drop-menu > li:hover {
+	text-decoration: underline;
+}
+
+.username {
+	font-size: 17px;
+	margin-bottom: 20px;
+	color: rgba(255,255,255,.4);
+	font-weight: 600;
+}
+
+.active-link {
+	border-bottom: 2px solid white !important;
+}

@@ -1,0 +1,29 @@
+<div class="wrapper app-component" [ngClass]="(activate_filter == true) ? 'filter-activated' : ''">
+	<div class="collection-navigation flex">
+		<ul class="main-nav flex">
+			<li class="flex active">
+				<span id="now_playing" (click)="changeType($event)"><i class="fas fa-play-circle"></i> Playing Now</span>
+			</li>
+			<li class="flex">
+				<span id="popular" (click)="changeType($event)"><i class="fas fa-fire-alt"></i> Popular</span>
+			</li>
+			<li class="flex">
+				<span id="upcoming" (click)="changeType($event)"><i class="fas fa-star"></i> Upcoming</span>
+			</li>
+			<li class="flex">
+				<span id="search" (click)="changeType($event)"><i class="fas fa-search"></i> Custom Search</span>
+			</li>
+		</ul>
+		<div class="border-bottom"></div>
+	</div>
+	<div class="more-options flex" *ngIf="moreOptions">
+		<div class="search flex">
+			<input type="text" placeholder="Search.." id="search-inp" (change)="search($event)">
+			<button class="search-btn flex"><i class="fas fa-search"></i></button>
+			<span class="results" *ngIf="resultsCount > 0">{{resultsCount}} Results Found!</span>
+		</div>
+		<div class="filter-button" (click)="toggleFilter()"><i class="fas fa-filter"></i> Filter</div>
+	</div>
+	<router-outlet></router-outlet>
+</div>
+<app-filter (closed)="toggleFilter()" [activate_filter]="activate_filter"></app-filter>

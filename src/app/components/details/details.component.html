@@ -1,0 +1,71 @@
+<div class="blur-bg"></div>
+<div *ngFor="let data of data" class="main-container">
+	<div class="close" (click)="close()"><i class="fas fa-arrow-left"></i> Back</div>
+	<perfect-scrollbar class="scroll-container" fxFlex="auto" [config]="config">
+		<div class="scroll-content">
+			<div class="bg-img flex" [style.background]="'url(https://image.tmdb.org/t/p/w1280'+data.backdrop_path+')'">
+				<i class="far fa-play-circle"></i>
+			</div>
+			<div class="details-container flex">
+				<div class="poster flex">
+					<img [src]="data.poster_path !== null ? 'https://image.tmdb.org/t/p/w500'+data.poster_path : '/site_images/placeholder.png'" alt="">
+					<div class="more-dets flex">
+						<span class="year">{{data.year}}</span> | <span class="pg">{{data.rating}}</span> | <span class="runtime">{{data.s_runtime}}</span>
+					</div>
+				</div>
+				<div class="details flex">
+					<div class="collection flex">
+						<div [ngClass]="data.watched ? 'gold' : ''" class="watched flex">
+							<i class="fas fa-video"></i>
+							 Watched
+						</div>
+						<div [ngClass]="data.watchlist ? 'gold' : ''" class="watchlist flex">
+							<i class="fas fa-clock"></i>
+							 Watchlist
+						</div>
+					</div>
+					<div class="title">
+						<span>{{data.title}}</span>
+						<span class="rating">{{data.vote_average}}</span>
+					</div>
+					<span class="sub-title">{{data.tagline}}</span>
+					<span class="dets"><b>Genres</b> {{data.s_genres}}.</span>
+					<span class="dets"><b>Production</b> {{data.production}}.</span>
+					<span class="dets"><b>Director</b> {{data.director}}.</span>
+					<span class="dets"><b>Budget</b> {{data.budget}} Dollars.</span>
+					<span class="dets"><b>Box office</b> {{data.revenue}} Dollars.</span>
+					<p class="story">{{data.overview}}</p>
+				</div>
+			</div>
+			<div class="c-c flex">			
+				<div class="cc flex" id="cast" (click)="expand($event)">
+					<span class="cc-title"><i class="fas fa-users"></i> <b>Movie Cast</b></span>
+					<div class="cc-container flex cast ps" [perfectScrollbar]="config" [disabled]="ps_cast">
+						<div *ngFor="let cast of data.credits.cast" class="cc-single flex">
+							<div class="cc-image" [style.backgroundImage]="'url('+cast.profile_path+')'"></div>
+							<div class="cc-detail flex">
+								<span>{{cast.name}}</span>
+								<span>{{cast.character}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cc flex" id="crew" (click)="expand($event)">
+					<span class="cc-title"><i class="fas fa-user-tie"></i> <b>Movie Crew</b></span>
+					<div class="cc-container flex crew ps" [perfectScrollbar]="config" [disabled]="ps_crew">
+						<div *ngFor="let cast of data.credits.crew" class="cc-single flex">
+							<div class="cc-image" [style.backgroundImage]="'url('+cast.profile_path+')'"></div>
+							<div class="cc-detail flex">
+								<span>{{cast.name}}</span>
+								<span>{{cast.job}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div *ngIf="data.belongs_to_collection !== null" class="movie-collection" [style.backgroundImage]="'url(https://image.tmdb.org/t/p/w1280'+data.belongs_to_collection.backdrop_path+')'">
+				
+			</div>
+		</div>
+	</perfect-scrollbar>
+</div>

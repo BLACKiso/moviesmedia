@@ -1,0 +1,12 @@
+<div class="main-login flex" [ngClass]="(landing !== true) ? 'full-bg' : ''">
+	<div *ngIf="error !== undefined" class="error">{{error}}</div>
+	<form class="form flex" (submit)="checkInput($event)">
+		<img src="/site_images/MM_logo_2.png" alt="">
+		<input type="text" placeholder="Username" id="username">
+		<input type="email" placeholder="Email" id="email">
+		<input type="password" placeholder="Password" id="password">
+		<input type="password" placeholder="Re-Password" id="re_password">
+		<button class="btn-style-1">Sing Up</button>
+		<span class="sp_2" (click)="switchToLogin()">Already have an Account?</span>
+	</form>
+</div>

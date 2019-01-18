@@ -1,0 +1,6 @@
+<div class="movies-container flex">
+	<div class="no-data" *ngIf="retrevedData.length == 0">
+		There is no data to show!
+	</div>
+	<app-movie *ngFor="let movie of retrevedData" [data]="movie"></app-movie>
+</div>

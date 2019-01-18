@@ -1,0 +1,30 @@
+<div class="main-navigation flex">
+	<div class="logo flex">
+		<img src="/site_images/MM_logo_2.png" alt="">
+	</div>
+	<ul class="menu flex">
+		<li class="flex"><a routerLink="/home" routerLinkActive="active-link">Home</a></li>
+		<li class="flex"><a routerLink="/collection" routerLinkActive="active-link">Collection</a></li>
+		<li class="flex"><a routerLink="/browse" routerLinkActive="active-link">Browse</a></li>
+	</ul>
+	<div class="search flex">
+		<input type="text" placeholder="Movies Search...">
+		<button class="no-style"><i class="fas fa-search"></i></button>
+	</div>
+	<div class="user-profile flex">
+		<div class="notifications flex">
+			<div class="notification-btn flex">
+				<i class="fas fa-bell"></i>
+			</div>
+		</div>
+		<div class="profile flex">
+			<img (click)="toggleMenu()" src="/users_images/{{userData.img}}" alt="">
+			<ul class="drop-menu flex" [style.display]="openMenu">
+				<ul class="username">{{userData.unm}}</ul>
+				<li>Profile</li>
+				<li>Settings</li>
+				<li>Log Out</li>
+			</ul>
+		</div>
+	</div>
+</div>
